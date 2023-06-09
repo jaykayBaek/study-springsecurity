@@ -4,7 +4,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -23,4 +31,51 @@ public class ProjectSecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }
+
+    /**
+     * InMemoryUserDetailsManager
+     * @return
+     */
+    @Bean
+    public InMemoryUserDetailsManager userDetailsManager() {
+        /*접근법 2. 사용자 세부 정보를 생성하는 동안
+        withDefaultPasswordEncoder() 메소드를 사용하는 접근법*/
+        /*UserDetails admin = User.withDefaultPasswordEncoder()
+                .username("admin")
+                .password("1234")
+                .authorities("admin")
+                .build();
+        UserDetails user = User.withDefaultPasswordEncoder()
+                .username("user")
+                .password("1234")
+                .authorities("read")
+                .build();
+
+        return new InMemoryUserDetailsManager(admin, user);*/
+
+        /*접근법 2. 사용자 세부 정보를 생성하는 동안
+        NoOpPasswordEncoder Bean을 등록하는 접근법*/
+        UserDetails admin = User.withUsername("admin")
+                .password("1234")
+                .authorities("admin")
+                .build();
+        UserDetails user = User.withUsername("user")
+                .password("1234")
+                .authorities("read")
+                .build();
+
+        return new InMemoryUserDetailsManager(admin, user);
+    }
+
+    /**
+     * NoOpPasswordEncoder는 프로덕션에 사용할 것을 권장하지 않는다.
+     * 프로덕션 코드가 아닌 경우에만 권장
+     *
+     * @return PasswordEncoder
+     */
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
+
 }
