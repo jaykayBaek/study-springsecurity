@@ -8,6 +8,9 @@ public class AccountController {
 
     @GetMapping("/myAccount")
     public String getAccountDetails(){
+        System.out.println("true = " + true);
+        //안녕하세요
+        System.out.println("true = " + true);
         return "Here are the account details from the DB";
     }
 }

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springsecsection3.springsecuritybasic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/springsecsection3.springsecuritybasic.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/study-springsecurity.iml" filepath="$PROJECT_DIR$/.idea/study-springsecurity.iml" />
     </modules>
   </component>

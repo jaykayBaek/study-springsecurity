@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### databse
+/src/main/resources/database.yml
