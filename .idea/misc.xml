@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/springsecsection2" />
     <file type="web" url="file://$PROJECT_DIR$/springsecsection3" />
+    <file type="web" url="file://$PROJECT_DIR$/springsecsection4" />
     <file type="web" url="file://$PROJECT_DIR$/springsecuritybasic" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="17" project-jdk-type="JavaSDK" />
